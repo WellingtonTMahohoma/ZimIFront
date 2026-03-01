@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Project Details</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Segoe UI, sans-serif;
+}
+
+body{
+    background:#0b0f0b;
+    color:#fff;
+    padding:30px;
+}
+
+.container{
+    max-width:1100px;
+    margin:auto;
+}
+
+/* HEADER */
+
+.header{
+    margin-bottom:30px;
+}
+
+.header h1{
+    color:#00ff88;
+    margin-bottom:10px;
+}
+
+.status{
+    display:inline-block;
+    padding:6px 15px;
+    border-radius:20px;
+    font-size:14px;
+    background:#00ff88;
+    color:#000;
+    font-weight:bold;
+}
+
+/* CARD STYLE */
+
+.card{
+    background:#141414;
+    padding:25px;
+    border-radius:12px;
+    margin-bottom:25px;
+    box-shadow:0 0 15px rgba(0,255,136,0.2);
+    transition:0.3s;
+}
+
+.card:hover{
+    box-shadow:0 0 25px rgba(0,255,136,0.4);
+}
+
+h2{
+    color:#00ff88;
+    margin-bottom:15px;
+}
+
+/* TECH STACK */
+
+.tech span{
+    display:inline-block;
+    background:#00ff88;
+    color:#000;
+    padding:6px 12px;
+    border-radius:20px;
+    margin-right:10px;
+    margin-top:5px;
+    font-size:14px;
+}
+
+/* TIMELINE */
+
+.timeline{
+    display:flex;
+    gap:15px;
+    flex-wrap:wrap;
+}
+
+.phase{
+    background:#1f1f1f;
+    padding:15px;
+    border-radius:10px;
+    flex:1;
+    min-width:150px;
+    text-align:center;
+}
+
+.phase.active{
+    background:#00ff88;
+    color:#000;
+    font-weight:bold;
+}
+
+/* PROGRESS BAR */
+
+.progress-bar{
+    background:#333;
+    border-radius:20px;
+    overflow:hidden;
+    height:25px;
+    margin-top:15px;
+}
+
+.progress{
+    height:100%;
+    background:#00ff88;
+    text-align:center;
+    line-height:25px;
+    font-weight:bold;
+    color:#000;
+}
+
+/* MILESTONES */
+
+.milestones li{
+    list-style:none;
+    padding:10px;
+    margin-bottom:10px;
+    background:#1f1f1f;
+    border-radius:8px;
+}
+
+.completed{
+    background:#00ff88;
+    color:#000;
+    font-weight:bold;
+}
+
+/* MEMBERS SECTION */
+
+.members{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:15px;
+}
+
+.member-card{
+    background:#1f1f1f;
+    padding:15px;
+    border-radius:10px;
+    border:1px solid rgba(0,255,136,0.2);
+    transition:0.3s;
+}
+
+.member-card:hover{
+    box-shadow:0 0 15px rgba(0,255,136,0.4);
+}
+
+.member-name{
+    font-weight:bold;
+    margin-bottom:6px;
+}
+
+.member-role{
+    display:inline-block;
+    padding:4px 10px;
+    border-radius:12px;
+    font-size:13px;
+    margin-bottom:6px;
+}
+
+.role-admin{
+    background:#00ff88;
+    color:#000;
+    font-weight:bold;
+}
+
+.role-member{
+    background:#444;
+}
+
+.member-email{
+    font-size:13px;
+    color:#ccc;
+}
+
+/* TASK TABLE */
+
+table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+th, td{
+    padding:12px;
+    text-align:left;
+}
+
+th{
+    background:#1f1f1f;
+    color:#00ff88;
+}
+
+tr{
+    border-bottom:1px solid #333;
+}
+
+.status-pill{
+    padding:5px 10px;
+    border-radius:15px;
+    font-size:13px;
+    font-weight:bold;
+}
+
+.todo{background:#444;}
+.inprogress{background:#ffaa00; color:#000;}
+.done{background:#00ff88; color:#000;}
+
+/* RESPONSIVE */
+
+@media(max-width:768px){
+    .timeline{
+        flex-direction:column;
+    }
+}
+</style>
+</head>
+<body>
+
+<div class="container" id="projectContainer">
+</div>
+<script>
+async function loadProject() {
+    const response = await fetch("projects.json");
+    const data = await response.json();
+
+    const urlParams = new URLSearchParams(window.location.search);
+    const projectId = urlParams.get("id") || "project1";
+
+    const project = data.projects.find(p => p.id === projectId);
+    const container = document.getElementById("projectContainer");
+
+    if (!project) {
+        container.innerHTML = "<h1>Project Not Found</h1>";
+        return;
+    }
+
+    container.innerHTML = `
+        <div class="header">
+            <h1>${project.number}</h1>
+            <h1>${project.title}</h1>
+            <span class="status">${project.status}</span>
+        </div>
+
+        <div class="card">
+            <h2>Project Overview</h2>
+            <p>${project.overview}</p>
+        </div>
+
+        <div class="card">
+            <h2>Description & Goals</h2>
+            <p>${project.description}</p>
+            <ul>
+                ${project.goals.map(goal => `<li>✔ ${goal}</li>`).join("")}
+            </ul>
+        </div>
+
+        <div class="card">
+            <h2>Project Members</h2>
+            <div class="members">
+                ${project.members.map(member => `
+                    <div class="member-card">
+                        <div class="member-name">${member.name}</div>
+                        <div class="member-role ${member.role === "Admin" ? "role-admin" : "role-member"}">${member.role}</div>
+                        <div class="member-email">${member.email}</div>
+                    </div>
+                `).join("")}
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Tech Stack</h2>
+            <div class="tech">
+                ${project.techStack.map(tech => `<span>${tech}</span>`).join("")}
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Timeline</h2>
+            <div class="timeline">
+                ${project.timeline.map(phase => `
+                    <div class="phase ${phase.active ? "active" : ""}">${phase.name}</div>
+                `).join("")}
+            </div>
+
+            <div class="progress-bar">
+                <div class="progress" style="width:${project.progress}%">
+                    ${project.progress}% Complete
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Milestones</h2>
+            <ul class="milestones">
+                ${project.milestones.map(m => `
+                    <li class="${m.completed ? "completed" : ""}">${m.name}</li>
+                `).join("")}
+            </ul>
+        </div>
+
+        <div class="card">
+            <h2>Task Management</h2>
+            <table>
+                <tr>
+                    <th>Task</th>
+                    <th>Assigned To</th>
+                    <th>Deadline</th>
+                    <th>Status</th>
+                </tr>
+                ${project.tasks.map(task => `
+                    <tr>
+                        <td>${task.task}</td>
+                        <td>${task.assigned}</td>
+                        <td>${task.deadline}</td>
+                        <td>
+                            <span class="status-pill ${task.status}">
+                                ${task.status === "todo" ? "To Do" :
+                                  task.status === "inprogress" ? "In Progress" :
+                                  "Completed"}
+                            </span>
+                        </td>
+                    </tr>
+                `).join("")}
+            </table>
+        </div>
+    `;
+}
+
+loadProject();
+</script>
+
+
+</body>
+</html>

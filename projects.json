@@ -1,0 +1,58 @@
+﻿{
+  "projects": [
+    {
+      "id": "project1",
+      "number": "Project 1",
+      "title": "Student Collaboration Website",
+      "status": "Ongoing Project",
+      "overview": "ZimIFront is a web-based platform that allows students to collaborate, assign tasks, track milestones, and monitor overall project progress.",
+      "description": "This system helps manage projects efficiently.",
+      "goals": [
+        "Create and design projects",
+        "Enable structured task assignment",
+        "Track deadlines and milestones",
+        "Monitor real-time project progress"
+      ],
+      "members": [
+        { "name": "Chris", "role": "Admin", "email": "chris@email.com" },
+        { "name": "Elvis", "role": "Frontend Developer", "email": "elvis@email.com" },
+        { "name": "Jubilent", "role": "Backend Developer", "email": "jubilent@email.com" },
+        { "name": "Cossam", "role": "UI/UX Designer", "email": "cossam@email.com" }
+      ],
+      "techStack": ["Html", "Css", "Javascript", "Json"],
+      "timeline": [
+        { "name": "Week 1 - UI Design", "active": true },
+        { "name": "Week 2 - Backend", "active": true },
+        { "name": "Week 3 - Testing", "active": false },
+        { "name": "Week 4 - Deployment", "active": false }
+      ],
+      "progress": 70,
+      "milestones": [
+        { "name": "UI Wireframe Completed", "completed": true },
+        { "name": "Database Schema Setup", "completed": true },
+        { "name": "Task Assignment Module", "completed": false },
+        { "name": "Final Deployment", "completed": false }
+      ],
+      "tasks": [
+        {
+          "task": "Create Login System",
+          "assigned": "Chris",
+          "deadline": "20 May",
+          "status": "inprogress"
+        },
+        {
+          "task": "Design Dashboard UI",
+          "assigned": "Sunday",
+          "deadline": "18 May",
+          "status": "done"
+        },
+        {
+          "task": "Setup Hosting",
+          "assigned": "Elvis",
+          "deadline": "25 May",
+          "status": "todo"
+        }
+      ]
+    }
+  ]
+} 
