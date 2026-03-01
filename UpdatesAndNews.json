@@ -1,0 +1,31 @@
+{
+  "container": {
+    "sectionTitle": "Latest Updates",
+    "newsGrid": [
+      {
+        "title": "🚀 Project Orion Launch",
+        "description": "Our team successfully deployed the Orion AI system for real-time data analysis. This marks a major milestone in predictive modeling.",
+        "linkText": "Read more",
+        "linkUrl": "#"
+      },
+      {
+        "title": "🌱 GreenTech Hackathon",
+        "description": "We hosted a 48-hour hackathon focused on sustainable solutions. Over 15 teams participated, building prototypes for renewable energy monitoring.",
+        "linkText": "Event highlights",
+        "linkUrl": "#"
+      },
+      {
+        "title": "🤝 New Collaboration",
+        "description": "Home Ground has partnered with InnovateX Labs to co-develop blockchain-based project tracking tools for transparency and accountability.",
+        "linkText": "Learn more",
+        "linkUrl": "#"
+      },
+      {
+        "title": "📅 Upcoming Meetup",
+        "description": "Join us on March 15th for our quarterly meetup where we'll showcase ongoing projects and brainstorm new initiatives.",
+        "linkText": "Register now",
+        "linkUrl": "#"
+      }
+    ]
+  }
+}

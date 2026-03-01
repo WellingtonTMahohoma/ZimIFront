@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Updates Page | Home Ground</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #0d0d0d;
+      color: #e0ffe0;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background: linear-gradient(90deg, #00ff66, #006633);
+      padding: 20px;
+      text-align: center;
+      color: #0d0d0d;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.5rem;
+      font-weight: bold;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 20px auto;
+      padding: 20px;
+    }
+
+    .section-title {
+      border-left: 5px solid #00ff66;
+      padding-left: 10px;
+      margin-bottom: 15px;
+      font-size: 1.8rem;
+      color: #00ff66;
+    }
+
+    .news-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+    }
+
+    .news-item {
+      background: #1a1a1a;
+      border: 1px solid #00ff66;
+      border-radius: 10px;
+      padding: 15px;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .news-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 15px #00ff66;
+    }
+
+    .news-item h3 {
+      margin: 0;
+      color: #66ff99;
+    }
+
+    .news-item p {
+      color: #cfcfcf;
+    }
+
+    .news-item a {
+      display: inline-block;
+      margin-top: 10px;
+      text-decoration: none;
+      color: #00ff66;
+      font-weight: bold;
+    }
+
+    .news-item a:hover {
+      color: #66ff99;
+    }
+
+    footer {
+      background: #111;
+      text-align: center;
+      padding: 15px;
+      color: #00ff66;
+      margin-top: 30px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Home Ground</h1>
+    <p>Projects • News • Updates</p>
+  </header>
+
+  <div class="container">
+    <h2 class="section-title">Latest Updates</h2>
+    <div class="news-grid" id="news-grid">
+      <!-- Updates will be injected here by JS -->
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2026 Zimbabwe Innovation Front</p>
+  </footer>
+
+  <!-- External JavaScript -->
+  <script src="UpdatesAndNews.js"></script>
+</body>
+</html>
