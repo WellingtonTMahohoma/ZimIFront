@@ -1,0 +1,292 @@
+* {
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  margin: 0;
+  background: #000;
+}
+
+/* ================= LAYOUT ================= */
+.layout {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+/* ================= HEADER ================= */
+.top-bar {
+  height: 90px;
+  background: #000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 40px;
+}
+
+.logo {
+  font-size: 28px;
+  font-weight: 600;
+  color: white;
+}
+
+.logo-i {
+  color: #00ff00;
+}
+
+.nav {
+  display: flex;
+  gap: 40px;
+}
+
+.nav a {
+  text-decoration: none;
+  color: white;
+  font-weight: 500;
+}
+
+.nav a.active {
+  border-bottom: 3px solid #00ff00;
+  padding-bottom: 4px;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.profile-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+  font-size: 12px;
+}
+
+.avatar {
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  background: #ccc;
+}
+
+.auth-buttons {
+  display: flex;
+  gap: 8px;
+}
+
+.btn {
+  background: #00ff00;
+  padding: 6px 14px;
+  color: black;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 12px;
+}
+
+/* ================= BODY ================= */
+.body-area {
+  display: flex;
+  flex: 1;
+}
+
+/* ================= SIDEBAR ================= */
+.sidebar {
+  width: 260px;
+  transition: width 0.3s ease;
+  background: white;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar.collapsed {
+  width: 80px;
+}
+
+.sidebar.collapsed .side-item,
+.sidebar.collapsed .side-bottom a {
+  display: none;
+}
+
+.sidebar.collapsed .menu-toggle {
+  padding: 15px;
+}
+
+.menu-toggle {
+  padding: 15px 20px;
+  cursor: pointer;
+}
+
+.menu-toggle span {
+  display: block;
+  width: 26px;
+  height: 3px;
+  background: #00ff66;
+  margin: 5px 0;
+}
+
+.side-item {
+  background: #e6e6e6;
+  padding: 12px 20px;
+  margin-top: 6px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.side-item.active {
+  background: #00ff66;
+  font-weight: bold;
+}
+
+.side-bottom {
+  margin-top: 80px;
+}
+
+.side-bottom a {
+  display: block;
+  background: #dcdcdc;
+  padding: 12px 20px;
+  margin-top: 6px;
+  text-decoration: none;
+  color: #000;
+  font-size: 14px;
+
+}
+
+/* ================= MAIN ================= */
+.main {
+  flex: 1;
+  background: #f2f2f2;
+  display: flex;
+  flex-direction: column;
+}
+
+/* SEARCH */
+.search-wrapper {
+  padding: 16px 20px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.search {
+  position: relative;
+}
+
+.search input {
+  width: 260px;
+  padding: 8px 34px 8px 12px;
+  border: 1px solid #ccc;
+}
+
+.search-icon {
+  position: absolute;
+  right: 10px;
+  top: 8px;
+}
+
+/* CONTENT */
+.content {
+  padding: 20px;
+}
+
+/* ================= PROJECT SECTION ================= */
+
+.project-row {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr; 
+  gap: 15px;
+  background: #e6e6e6;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+/* CARD */
+.card {
+  background: #2a2a2a;
+  color: #fff;
+  padding: 18px;
+  border-radius: 6px;
+}
+
+/* STATUS */
+.status {
+  background: #00ff66;
+  color: #000;
+  padding: 4px 6px;
+  display: inline-block;
+  margin-bottom: 10px;
+}
+
+/* ================= PROGRESS CARD ================= */
+
+.progress-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;  
+  padding-top: 10px;            
+}
+
+/* KEY (Top Right Corner) */
+.progress-key {
+  position: absolute;
+  top: 25px;
+  right: 10px;
+  font-size: 11px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.key {
+  padding: 3px 6px;
+  font-weight: 600;
+}
+
+.key.completed {
+  background: #00ff66;
+  color: #000;
+}
+
+.key.in-progress {
+  background: #ffffff;
+  color: #000;
+}
+
+/* ACTIVE MEMBERS UNDER RING */
+.active-members {
+  margin-top: 14px;
+  font-size: 13px;
+  text-align: center;
+}
+
+/* PROGRESS RING */
+.progress-ring {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  align-self: flex-start;
+  margin-left: 10px;
+  background: conic-gradient(
+    #00ff66 calc(var(--progress) * 1%),
+    #555 0
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+.members-link {
+  margin-top: 8px;
+  font-size: 12px;
+  color: #00ff66;
+  text-decoration: none;
+  font-weight: 600;
+}
+.members-link:hover {
+  text-decoration: underline;
+}

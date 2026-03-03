@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>ZIM I FRONT | Projects</title>
+<link rel="stylesheet" href="dashboard.css">
+</head>
+
+<body>
+
+<div class="layout">
+
+    <!-- ================= HEADER ================= -->
+    <header class="top-bar">
+
+        <div class="logo">
+            ZIM <span class="logo-i">I</span> FRONT
+        </div>
+
+        <nav class="nav">
+            <a href="index.html">HOME</a>
+            <a href="project.html" class="active">PROJECTS</a>
+            <a href="#">JKBJBK</a>
+        </nav>
+
+        <div class="header-right">
+            <div class="profile-block">
+                <div class="avatar"></div>
+                <span class="guest-mode">GUEST MODE</span>
+            </div>
+
+            <div class="auth-buttons">
+                <a href="/login.html" class="btn">LOGIN</a>
+                <a href="/signup.html" class="btn">SIGN-UP</a>
+            </div>
+        </div>
+
+    </header>
+
+    <!-- ================= BODY ================= -->
+    <div class="body-area">
+
+        <!-- SIDEBAR -->
+        <aside class="sidebar" id="sidebar">
+
+            <!-- HAMBURGER -->
+            <div class="menu-toggle" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+
+            <div class="side-item active" data-filter="all">
+                ALL PROJECTS (<span id="count-all">0</span>) >>>
+            </div>
+
+            <div class="side-item" data-filter="completed">
+                COMPLETED (<span id="count-completed">0</span>) >>>
+            </div>
+
+            <div class="side-item" data-filter="future">
+                FUTURE (<span id="count-future">0</span>) >>>
+            </div>
+
+            <div class="side-item" data-filter="standby">
+                STAND BY (<span id="count-standby">0</span>) >>>
+            </div>
+
+            <div class="side-item" data-filter="current">
+                CURRENT (<span id="count-current">0</span>) >>>
+            </div>
+
+            <div class="side-bottom">
+                <a href="/create-project.html">CREATE NEW PROJECT >>></a>
+                <a href="/organisation.html">OUR ORGANISATION >>></a>
+            </div>
+
+        </aside>
+
+        <!-- MAIN -->
+        <main class="main">
+
+            <div class="search-wrapper">
+                <div class="search">
+                    <input type="search" placeholder="Search projects">
+                    <span class="search-icon">🔍</span>
+                </div>
+            </div>
+
+            <section class="content" id="projectContainer">
+
+                
+                <div class="project-row">
+
+                    <!-- Card 1 -->
+                    <div class="card">
+                        <span class="status">ACTIVE</span>
+                        <h3>PROJECT 1</h3>
+                        <p>COLLABORATION WEBSITE<br>(HOME WEBSITE)</p>
+                    </div>
+
+                    <!-- Card 2 (Progress + Key + Active Members in same card) -->
+                    <div class="card progress-card">
+
+                        <div class="progress-header">
+                            <div class="progress-key">
+                                <span class="key completed">Completed</span>
+                                <span class="key in-progress">In Progress</span>
+                            </div>
+                        </div>
+
+                        <div class="progress-ring" style="--progress:75">
+                            75%
+                        </div>
+
+                        <p class="active-members">ACTIVE MEMBERS: ${p.members}</p>
+                        <a href="/project-members.html" class="members-link">VIEW MEMBERS -></a>
+
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div class="card">
+                        <p>STARTED<br>07/02/2026</p>
+                        <p>FINISHED<br>--</p>
+                        <p>CURRENT<br>07/02/2026</p>
+                    </div>
+
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+</div>
+
+<script src="dashboard.js"></script>
+</body>
+</html>
