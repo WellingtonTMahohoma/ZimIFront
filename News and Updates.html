@@ -13,12 +13,258 @@
       padding: 0;
     }
 
-    header {
+    <!-- header {
       background: linear-gradient(90deg, #00ff66, #006633);
       padding: 20px;
       text-align: center;
       color: #0d0d0d;
-    }
+    } -->
+    .navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.95);
+    padding: 24px 32px;
+    z-index: 1000;
+    backdrop-filter: blur(10px);
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.nav-left {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+}
+
+.menu-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 5px;
+}
+
+.menu-toggle span {
+    width: 30px;
+    height: 3px;
+    background-color: var(--primary-green);
+    transition: all 0.3s ease;
+}
+
+.menu-toggle:hover span {
+    background-color: var(--text-white);
+}
+
+.logo {
+    font-size: 32px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.logo-zim {
+    color: var(--text-white);
+}
+
+.logo-front {
+    color: var(--text-white);
+}
+
+.logo-i {
+    color: var(--primary-green);
+    font-size:50px; 
+}
+
+.nav-center {
+    display: flex;
+    gap: 48px;
+}
+
+.nav-link {
+    color: var(--text-white);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 15.2px;
+    letter-spacing: 1px;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: var(--primary-green);
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--primary-green);
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+    width: 100%;
+}
+
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.user-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 16px;
+}
+
+.user-icon {
+    width: 40px;
+    height: 40px;
+    background-color: #d3d3d3;
+    border-radius: 50%;
+    margin-bottom: 5px;
+}
+
+.user-text {
+    font-size: 11.2px;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.btn-login,
+.btn-signup {
+    padding: 9.6px 24px;
+    border: none;
+    border-radius: 25px;
+    font-weight: 600;
+    font-size: 13.6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    letter-spacing: 1px;
+}
+
+.btn-login {
+    background-color: var(--primary-green);
+    color: var(--bg-black);
+}
+
+.btn-login:hover {
+    background-color: var(--dark-green);
+    transform: translateY(-2px);
+}
+
+.btn-signup {
+    background-color: var(--primary-green);
+    color: var(--bg-black);
+}
+
+.btn-signup:hover {
+    background-color: var(--dark-green);
+    transform: translateY(-2px);
+}
+
+
+.mobile-menu .btn-login,
+.mobile-menu .btn-signup {
+    background-color: var(--bg-black);
+    color: var(--primary-green);
+    border: 2px solid var(--bg-black);
+}
+
+.mobile-menu .btn-login:hover,
+.mobile-menu .btn-signup:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+    transform: translateY(-2px);
+}
+
+
+.mobile-menu {
+    position: fixed;
+    top: 0;
+    left: -500px;
+    width: 450px;
+    height: 100vh;
+    background-color: var(--primary-green);
+    padding: 2.5rem 2rem;
+    transition: left 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 1001;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 4px 0 20px rgba(0, 255, 65, 0.3);
+}
+
+.mobile-menu.active {
+    left: 0;
+}
+
+.menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.4s ease, visibility 0.4s ease;
+}
+
+.menu-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.mobile-header {
+    color: var(--bg-black);
+    font-weight: 700;
+    font-size: 20.8px;
+    padding-bottom: 19.2px;
+    border-bottom: 3px solid var(--bg-black);
+    margin-bottom: 32px;
+    letter-spacing: 1.5px;
+}
+
+.mobile-link {
+    display: block;
+    color: var(--bg-black);
+    text-decoration: none;
+    padding: 19.2px 0;
+    font-weight: 600;
+    font-size: 17.6px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
+    letter-spacing: 0.5px;
+}
+
+.mobile-link:hover {
+    padding-left: 15px;
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.mobile-auth {
+    margin-top: auto;
+    padding-top: 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
 
     header h1 {
       margin: 0;
@@ -90,10 +336,51 @@
   </style>
 </head>
 <body>
-  <header>
-    <h1>Home Ground</h1>
-    <p>Projects • News • Updates</p>
-  </header>
+  
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-left">
+                <button class="menu-toggle" id="menuToggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <div class="logo">
+                    <span class="logo-zim">ZIM</span><span class="logo-i">I</span><span class="logo-front">FRONT</span>
+                </div>
+            </div>
+            
+            <div class="nav-center">
+                <a href="#home" class="nav-link active">HOME</a>
+                <a href="#about" class="nav-link">ABOUT</a>
+                <a href="#projects" class="nav-link">PROJECTS</a>
+                <a href="#contact" class="nav-link">CONTACT US</a>
+            </div>
+            
+            <div class="nav-right">
+                <div class="user-section">
+                    <div class="user-icon"></div>
+                    <span class="user-text">GUEST MODE</span>
+                </div>
+                <button class="btn-login">LOGIN</button>
+                <button class="btn-signup">SIGN-UP</button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-header">WELCOME, GUEST</div>
+        <a href="#home" class="mobile-link">HOME</a>
+        <a href="#projects" class="mobile-link">PROJECTS OVERVIEW</a>
+        <a href="#organisation" class="mobile-link">OUR ORGANISATION</a>
+        <a href="#vote" class="mobile-link">VOTE HUB</a>
+        <a href="#contact" class="mobile-link">CONTACT US</a>
+        <div class="mobile-auth">
+            <button class="btn-login">LOGIN</button>
+            <button class="btn-signup">SIGN-UP</button>
+     </div>
+
+
 
   <div class="container">
     <h2 class="section-title">Latest Updates</h2>
@@ -109,4 +396,5 @@
   <!-- External JavaScript -->
   <script src="UpdatesAndNews.js"></script>
 </body>
+
 </html>
