@@ -33,6 +33,7 @@ body {
 
 .logo-i {
   color: #00ff00;
+  font-size: 50px;
 }
 
 .nav {
@@ -289,4 +290,5 @@ body {
 }
 .members-link:hover {
   text-decoration: underline;
+
 }
