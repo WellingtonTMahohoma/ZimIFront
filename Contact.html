@@ -16,6 +16,14 @@
             margin: 0;
         }
 
+.page-wrapper{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
+    padding-top:120px;
+}
+
         /* Container Layout */
         .contact-container {
             display: flex;
@@ -134,9 +142,13 @@
             }
         }
     </style>
+    <link rel="stylesheet" href="Header_and_footer.css">
 </head>
 <body>
+    
+<special-header></special-header>
 
+<div class="page-wrapper">
 <div class="contact-container">
     <div class="contact-info">
         <h2>Get in Touch</h2>
@@ -169,6 +181,14 @@
         <div id="success-msg">Message sent successfully!</div>
     </form>
 </div>
+</div>
+
+
+<special-footer></special-footer>
+
+<script src = 'headerFooterManager.js' defer></script>
+
+<script src = 'Header_and_Footer.js'></script>    
 
 <script>
     // Simple script to handle form submission UI
@@ -188,6 +208,8 @@
         }, 1000);
     });
 </script>
+<script src="menu_button.js"></script>    
 
 </body>
+
 </html>
