@@ -183,18 +183,14 @@ button {
     header h1 {font-size:2rem;}
 }
 </style>
+<link rel="stylesheet" href="Header_and_footer.css">
+    
 </head>
 
 <body>
-<div class="container">
 
-<header>
-    <h1>RESOURCE HUB</h1>
-    <p>
-        Store design and notes, store meeting schedules and notes on every meeting,
-        and track your progress in one place.
-    </p>
-</header>
+<special-header></special-header>
+<div class="container">
 
 <section class="features">
     <div class="feature-card" onclick="showSection('designs')">
@@ -270,6 +266,11 @@ button {
 </div>
 
 </div>
+
+    <special-footer></special-footer>
+    <script src = 'headerFooterManager.js' defer></script>
+
+<script src = 'Header_and_Footer.js'></script> 
 
 <script>
 document.addEventListener('DOMContentLoaded', () => {
@@ -413,7 +414,8 @@ function setMeetingDate(){
 meetingDate.value=new Date().toISOString().split('T')[0];
 }
 </script>
-
+<script src="menu_button.js"></script> 
 </body>
 </html>
+
 
