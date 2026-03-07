@@ -224,11 +224,19 @@ tr{
     }
 }
 </style>
+<link rel="stylesheet" href="Header_and_footer.css">
 </head>
 <body>
 
+<special-header></special-header>
+
 <div class="container" id="projectContainer">
 </div>
+    <special-footer></special-footer>
+    <script src = 'headerFooterManager.js' defer></script>
+
+<script src = 'Header_and_Footer.js'></script> 
+
 <script>
 async function loadProject() {
     const response = await fetch("projects.json");
@@ -340,6 +348,7 @@ async function loadProject() {
 loadProject();
 </script>
 
-
+<script src="menu_button.js"></script> 
 </body>
+
 </html>
