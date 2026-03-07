@@ -111,59 +111,12 @@
             text-transform: uppercase;
         }
     </style>
+    <link rel="stylesheet" href="Header_and_footer.css">
 </head>
 <body>
+<special-header></special-header>
 
-    <header id="menu-toggle" style="background-color: #000000; color: #ffffff; position: relative;">
-        <div style="padding: 20px 40px; display: flex; align-items: center; justify-content: space-between;">
-            
-            <div>
-                <h1 style="margin: 0; font-size: 42px; letter-spacing: -1px;">
-                    ZIM<span style="color: #00ff00; border-left: 3px solid #00ff00; border-right: 3px solid #00ff00; padding: 0 10px; margin: 0 5px;">I</span>FRONT
-                </h1>
-                <a href="#menu-toggle" style="text-decoration: none; display: block; margin-top: 15px;">
-                    <div style="width: 45px; height: 6px; background-color: #00ff00; margin-bottom: 5px;"></div>
-                    <div style="width: 45px; height: 6px; background-color: #00ff00; margin-bottom: 5px;"></div>
-                    <div style="width: 45px; height: 6px; background-color: #00ff00;"></div>
-                </a>
-            </div>
-
-            <nav style="display: flex; gap: 60px;">
-                <a href="/home" class="nav-link">HOME<div class="underline"></div></a>
-                <a href="/projects" class="nav-link">PROJECTS<div class="underline"></div></a>
-                <a href="/jkbjbkj" class="nav-link">JKBJBKJ<div class="underline"></div></a>
-            </nav>
-
-            <div style="text-align: center;">
-                <div style="background-color: #ffffff; width: 70px; height: 70px; margin: 0 auto 5px; display: flex; align-items: flex-end; justify-content: center; overflow: hidden; border-radius: 5px;">
-                     <svg viewBox="0 0 24 24" fill="#cccccc" style="width: 65px; height: 65px;"><circle cx="12" cy="8" r="5" /><path d="M2,21 C2,15 6,12 12,12 C18,12 22,15 22,21" /></svg>
-                </div>
-                <div style="font-size: 11px; margin-bottom: 10px;">GUEST MODE</div>
-                <div style="display: flex; gap: 8px;">
-                    <a href="/login" style="background-color: #00ff00; color: black; padding: 6px 15px; border-radius: 20px; text-decoration: none; font-size: 12px;">LOGIN</a>
-                    <a href="/signup" style="background-color: #00ff00; color: black; padding: 6px 15px; border-radius: 20px; text-decoration: none; font-size: 12px;">SIGN-UP</a>
-                </div>
-            </div>
-        </div>
-
-        <div id="side-menu">
-            <h3 style="margin: 0; font-size: 26px; border-bottom: 6px solid black; padding-bottom: 15px;">WELCOME, GUEST</h3>
-            <ul style="list-style: none; padding: 30px 0; margin: 0; line-height: 2.8;">
-                <li><a href="/home" style="color: black; text-decoration: none;">HOME</a></li>
-                <li><a href="/projects-overview" style="color: black; text-decoration: none;">PROJECTS OVERVIEW</a></li>
-                <li><a href="/organisation" style="color: black; text-decoration: none;">OUR ORGANISATION</a></li>
-                <li><a href="/vote-hub" style="color: black; text-decoration: none;">VOTE HUB</a></li>
-                <li><a href="/contact" style="color: black; text-decoration: none;">CONTACT US</a></li>
-            </ul>
-            <div style="font-size: 11px; text-align: center; margin-top: 20px;">
-                COPYRIGHT © 2026 ZIMBABWE INNOVATION FRONT. ALL RIGHTS RESERVED.
-                <br><br>
-                <a href="#" style="color: black; font-weight: bold;">[ CLOSE MENU ]</a>
-            </div>
-        </div>
-    </header>
-
-    <main style="padding: 60px 0;">
+    <main style="padding: 120px 0;">
         <h2 style="text-align: center; font-size: 40px; margin-bottom: 30px; text-transform: uppercase;">Team Members</h2>
 
         <div class="member-container">
@@ -242,6 +195,12 @@
 
         </div>
     </main>
+    <special-footer></special-footer>
+
+<script src="headerFooterManager.js"></script>
+<script src="Header_and_Footer.js"></script>
+<script src="menu_button.js"></script>
 
 </body>
+
 </html>
