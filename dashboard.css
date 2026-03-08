@@ -289,8 +289,15 @@ body {
   text-decoration: none;
   font-weight: 600;
 }
+
 .members-link:hover {
   text-decoration: underline;
 
 }
+
+.project-link {
+  color: #00ff66;
+  text-decoration: none;
+}
+
 
