@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>ZIM I FRONT | Create Project</title>
+<link rel="stylesheet" href="dashboard.css">
+</head>
+
+<body>
+
+<div class="layout">
+
+<!-- ================= HEADER ================= -->
+<header class="top-bar">
+
+<div class="logo">
+ZIM <span class="logo-i">I</span> FRONT
+</div>
+
+<nav class="nav">
+<a href="index.html">HOME</a>
+<a href="dashboard.html">PROJECTS</a>
+</nav>
+
+<div class="header-right">
+<div class="profile-block">
+<div class="avatar"></div>
+<span class="guest-mode">GUEST MODE</span>
+</div>
+
+<div class="auth-buttons">
+<a href="login.html" class="btn">LOGIN</a>
+<a href="signup.html" class="btn">SIGN-UP</a>
+</div>
+</div>
+
+</header>
+
+<!-- ================= BODY ================= -->
+<div class="body-area">
+
+<!-- SIDEBAR -->
+<aside class="sidebar">
+
+<div class="side-item">
+<a href="dashboard.html">ALL PROJECTS >>></a>
+</div>
+
+<div class="side-item">
+<a href="create-project.html">CREATE NEW PROJECT >>></a>
+</div>
+
+<div class="side-bottom">
+<a href="organisation.html">OUR ORGANISATION >>></a>
+</div>
+
+</aside>
+
+<!-- MAIN CONTENT -->
+<main class="main">
+
+<section class="content">
+
+<h2>Create New Project</h2>
+
+<form id="projectForm" class="project-form">
+
+<!-- BASIC INFO -->
+<h3>Basic Information</h3>
+
+<label>Project Title</label>
+<input type="text" id="title" required>
+
+<label>Project Description</label>
+<textarea id="description" required></textarea>
+
+
+<!-- STATUS -->
+<h3>Status & Progress</h3>
+
+<label>Status</label>
+<select id="status">
+<option value="current">Current</option>
+<option value="future">Future</option>
+<option value="standby">Standby</option>
+<option value="completed">Completed</option>
+</select>
+
+<label>Progress (%)</label>
+<input type="number" id="progress" min="0" max="100" value="0">
+
+
+<!-- TEAM -->
+<h3>Team</h3>
+
+<label>Active Members</label>
+<input type="number" id="members" value="1" min="1">
+
+
+<!-- TIMELINE -->
+<h3>Timeline</h3>
+
+<label>Start Date</label>
+<input type="date" id="started" required>
+
+<label>Finish Date</label>
+<input type="date" id="finished">
+
+
+<button type="submit" class="btn">
+CREATE PROJECT
+</button>
+
+</form>
+
+</section>
+
+</main>
+
+</div>
+
+</div>
+
+<script>
+
+const form = document.getElementById("projectForm");
+
+form.addEventListener("submit", function(e){
+
+e.preventDefault();
+
+const finishedInput = document.getElementById("finished").value;
+const progressInput = document.getElementById("progress").value;
+
+const project = {
+id: Date.now(),
+title: document.getElementById("title").value,
+description: document.getElementById("description").value,
+status: document.getElementById("status").value,
+progress: progressInput,
+members: document.getElementById("members").value,
+started: document.getElementById("started").value,
+finished: finishedInput ? finishedInput : "--/--/--",
+created: new Date().toLocaleDateString()
+};
+
+/* auto complete if progress = 100 */
+if(project.progress == 100){
+project.status = "completed";
+project.finished = new Date().toLocaleDateString();
+}
+
+let projects = JSON.parse(localStorage.getItem("projects")) || [];
+
+projects.push(project);
+
+localStorage.setItem("projects", JSON.stringify(projects));
+
+alert("Project Created Successfully");
+
+window.location.href = "dashboard.html";
+
+});
+
+</script>
+
+</body>
+</html>
