@@ -32,8 +32,8 @@ function render(list) {
           <h3><a href="project.html" class="project-link">${p.title}</a></h3>
           <p>${p.description}</p>
 
-          <button onclick="updateProgress(0)">Update</button>
-          <button onclick="deleteProject(0)">Delete</button>
+          <button onclick="updateProgress(${projects.indexOf(p)})">Update</button>
+          <button onclick="deleteProject(${projects.indexOf(p)})">Delete</button>
 
         </div>
 
@@ -125,3 +125,4 @@ location.reload();
 
 updateCounts();
 render(projects);
+
