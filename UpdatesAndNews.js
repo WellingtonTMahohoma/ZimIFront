@@ -5,17 +5,17 @@ fetch('UpdatesAndNews.json')
     }
     return response.json();
   })
+
   .then(data => {
 
     const newsGrid = document.getElementById("news-grid");
+    const sectionTitle = document.querySelector(".section-title");
 
     const modal = document.getElementById("news-modal");
     const modalTitle = document.getElementById("modal-title");
     const modalDescription = document.getElementById("modal-description");
     const closeBtn = document.querySelector(".close-btn");
 
-    // Set section title
-    const sectionTitle = document.querySelector(".section-title");
     sectionTitle.textContent = data.container.sectionTitle;
 
     data.container.newsGrid.forEach(item => {
@@ -29,8 +29,9 @@ fetch('UpdatesAndNews.json')
         <a href="#" class="read-more">Read more</a>
       `;
 
-      // Read more click
-      newsItem.querySelector(".read-more").addEventListener("click", function(e){
+      const readMoreBtn = newsItem.querySelector(".read-more");
+
+      readMoreBtn.addEventListener("click", function(e) {
         e.preventDefault();
 
         modalTitle.textContent = item.title;
@@ -42,16 +43,17 @@ fetch('UpdatesAndNews.json')
       newsGrid.appendChild(newsItem);
     });
 
-    // Close modal
-    closeBtn.onclick = function(){
+    // close button
+    closeBtn.addEventListener("click", function() {
       modal.style.display = "none";
-    }
+    });
 
-    window.onclick = function(event){
-      if(event.target == modal){
+    // click outside modal
+    window.addEventListener("click", function(event) {
+      if (event.target === modal) {
         modal.style.display = "none";
       }
-    }
+    });
 
   })
 
