@@ -122,3 +122,22 @@ function guestMode(){
  alert("You are browsing as a guest.");
 }
 
+window.addEventListener('DOMContentLoaded', () => {
+    setTimeout(() => {
+        const navbar = document.querySelector('.navbar');
+        if (navbar) {
+            navbar.style.transition = 'transform 0.3s ease, background-color 0.3s ease';
+        }
+
+        // Also move menuToggle setup here since it's injected by the component
+        const menuToggle = document.getElementById('menuToggle');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const menuOverlay = document.getElementById('menuOverlay');
+
+        if (menuToggle) {
+            menuToggle.addEventListener('click', toggleMenu);
+        }
+    }, 0);
+});
+
+
