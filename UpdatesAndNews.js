@@ -28,8 +28,31 @@ fetch('UpdatesAndNews.json')
         <a href="${item.linkUrl}">${item.linkText}</a>
       `;
 
+      const modal = document.getElementById("news-modal");
+const modalTitle = document.getElementById("modal-title");
+const modalDescription = document.getElementById("modal-description");
+const closeBtn = document.querySelector(".close-btn");
+
+newsItem.querySelector(".read-more").addEventListener("click", function(e){
+  e.preventDefault();
+  modalTitle.textContent = item.title;
+  modalDescription.textContent = item.description;
+  modal.style.display = "block";
+});
+
+closeBtn.onclick = function(){
+  modal.style.display = "none";
+}
+
+window.onclick = function(event){
+  if(event.target == modal){
+    modal.style.display = "none";
+  }
+}
+      
       newsGrid.appendChild(newsItem);
     });
   })
 
   .catch(error => console.error("Error loading JSON:", error));
+
