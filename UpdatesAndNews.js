@@ -17,6 +17,12 @@ fetch('UpdatesAndNews.json')
       newsItem.className = "news-item";
 
       newsItem.innerHTML = `
+  <h3>${item.title}</h3>
+  <p>${item.description.substring(0,80)}...</p>
+  <a href="#" class="read-more">Read more</a>
+`;
+      
+      newsItem.innerHTML = `
         <h3>${item.title}</h3>
         <p>${item.description}</p>
         <a href="${item.linkUrl}">${item.linkText}</a>
@@ -25,4 +31,5 @@ fetch('UpdatesAndNews.json')
       newsGrid.appendChild(newsItem);
     });
   })
+
   .catch(error => console.error("Error loading JSON:", error));
