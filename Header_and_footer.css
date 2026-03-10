@@ -1,5 +1,5 @@
 /* Global reset used by header/footer */
-/* * {
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -356,6 +356,7 @@ body {
     font-size:22px;
     cursor:pointer;
 }
+
 
 
 
