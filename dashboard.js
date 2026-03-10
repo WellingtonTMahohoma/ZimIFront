@@ -5,18 +5,7 @@ menuToggle.addEventListener("click", () => {
     sidebar.classList.toggle("collapsed");
 });
 
-const projects = [
-  {
-    title: "PROJECT 1",
-    description: "COLLABORATION WEBSITE (HOME WEBSITE)",
-    status: "current",
-    progress: 70,
-    members: 6,
-    started: "07/02/2026",
-    finished: "-",
-    current: "07/02/2026"
-  }
-];
+let projects = JSON.parse(localStorage.getItem("projects")) || [];
 
 const container = document.getElementById("projectContainer");
 
@@ -40,11 +29,14 @@ function render(list) {
         <!-- Card 1 -->
         <div class="card">
           <span class="status">ACTIVE</span>
-          <h3>${p.title}</h3>
+          <h3><a href="project.html" class="project-link">${p.title}</a></h3>
           <p>${p.description}</p>
+
+          <button onclick="updateProgress(${projects.indexOf(p)})">Update</button>
+          <button onclick="deleteProject(${projects.indexOf(p)})">Delete</button>
+
         </div>
 
-        <!-- Card 2 (Progress + Key + Members merged) -->
         <div class="card progress-card">
 
           <div class="progress-key">
@@ -57,7 +49,7 @@ function render(list) {
           </div>
 
           <p class="active-members">ACTIVE MEMBERS: ${p.members}</p>
-          <a href="/project-members.html" class="members-link">VIEW MEMBERS -></a>
+          <a href="user_profiles.html" class="members-link">VIEW MEMBERS -></a>
 
         </div>
 
@@ -84,5 +76,53 @@ document.querySelectorAll(".side-item").forEach(item => {
   };
 });
 
+function deleteProject(index){
+
+let projects = JSON.parse(localStorage.getItem("projects")) || [];
+let confirmDelete = confirm("Are you sure you want to delete this project?");
+
+if(!confirmDelete) return;
+
+projects.splice(index,1);
+
+localStorage.setItem("projects", JSON.stringify(projects));
+
+location.reload();
+
+}
+
+function updateProgress(index){
+
+let projects = JSON.parse(localStorage.getItem("projects")) || [];
+
+let newProgress = prompt("Enter new progress %");
+
+if(newProgress !== null){
+
+projects[index].progress = newProgress;
+
+
+/* completion logic */
+
+if(projects[index].progress >= 100){
+
+projects[index].progress = 100;
+
+projects[index].status = "completed";
+
+projects[index].finished = new Date().toLocaleDateString();
+
+}
+
+localStorage.setItem("projects", JSON.stringify(projects));
+
+location.reload();
+
+}
+
+}
+
+
 updateCounts();
 render(projects);
+
