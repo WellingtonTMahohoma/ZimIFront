@@ -109,7 +109,7 @@ function openLogin(){
 function closeLogin(){
  document.getElementById("loginModal").style.display = "none";
 }
-function toggleMenu() {
+/*function toggleMenu() {
 
  const mobileMenu = document.getElementById('mobileMenu');
  const menuOverlay = document.getElementById('menuOverlay');
@@ -117,7 +117,7 @@ function toggleMenu() {
  mobileMenu.classList.toggle('active');
  menuOverlay.classList.toggle('active');
 
-}
+}*/
 
 function openSignup(){
  document.getElementById("signupModal").style.display = "block";
@@ -148,6 +148,7 @@ window.addEventListener('DOMContentLoaded', () => {
         }
     }, 0);
 });
+
 
 
 
