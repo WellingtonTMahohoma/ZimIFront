@@ -5,43 +5,6 @@
     box-sizing: border-box;
 }
 
-.modal{
- /*display:none;*/
- position:fixed;
- top:0;
- left:0;
- width:100%;
- height:100%;
- background:rgba(0,0,0,0.85);
- z-index:2000;
-}
-.modal-box{
-    background:#0a0a0a;
-    width:400px;
-    padding:30px;
-    border-radius:10px;
-    position:absolute;
-    top:50%;
-    left:50%;
-    transform:translate(-50%,-50%);
-    display:flex;
-    flex-direction:column;
-    gap:15px;
-}
-
-.modal-box input{
-    padding:10px;
-    border:none;
-    border-radius:5px;
-}
-
-.close{
-    position:absolute;
-    top:10px;
-    right:15px;
-    font-size:22px;
-    cursor:pointer;
-}*/
 :root {
     --primary-green: #00ff41;
     --dark-green: #00cc34;
@@ -393,5 +356,6 @@ body {
     font-size:22px;
     cursor:pointer;
 }
+
 
 
