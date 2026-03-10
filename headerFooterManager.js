@@ -18,8 +18,8 @@ class SpecialHeader extends HTMLElement
             
             <div class="nav-center">
                 <a href="#home" class="nav-link active">HOME</a>
-                <a href="#about" class="nav-link">OUR ORGANISATION</a>
                 <a href="project.html" class="nav-link">PROJECTS</a>
+                <a href="#about" class="nav-link">OUR ORGANISATION</a>
                 <a href="Contact.html" class="nav-link">CONTACT US</a>
             </div>
             
@@ -37,12 +37,11 @@ class SpecialHeader extends HTMLElement
     <div class="mobile-menu" id="mobileMenu">
         <div class="mobile-header">WELCOME, GUEST</div>
         <a href="index.html" class="mobile-link">HOME</a>
-        <a href="project.html" class="mobile-link">PROJECTS OVERVIEW</a>
-        <a href="#organisation" class="mobile-link">OUR ORGANISATION</a>
         <a href="dashboard.html" class="mobile-link">PROJECTS</a>
         <a href="user_profiles.html" class="mobile-link">USER PROFILES</a> 
-        <a href="News and Updates.html" class="mobile-link">NEWS & UPDATES</a>
         <a href="resourcehub.html" class="mobile-link">RESOURCES HUB</a>
+        <a href="News and Updates.html" class="mobile-link">NEWS & UPDATES</a>
+        <a href="#organisation" class="mobile-link">OUR ORGANISATION</a>
         <a href="Contact.html" class="mobile-link">CONTACT US</a>
         <div class="mobile-auth">
             <button class="btn-login">LOGIN</button>
@@ -79,3 +78,4 @@ class SpecialFooter extends HTMLElement
 customElements.define('special-header', SpecialHeader)
 
 customElements.define('special-footer', SpecialFooter)
+
