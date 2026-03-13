@@ -26,7 +26,7 @@ class SpecialHeader extends HTMLElement
             <div class="nav-right">
                 <div class="user-section">
                     <div class="user-icon"></div>
-                    <span class="user-text">GUEST MODE</span>
+                    <span class="user-text" onclick="guestMode()>GUEST MODE</span>
                 </div>
                <button class="btn-login" onclick="openLogin()">LOGIN</button>
                 <button class="btn-signup" onclick="openSignup()">SIGN-UP</button>
@@ -233,7 +233,6 @@ window.addEventListener('DOMContentLoaded', () => {
         }
 
         // Also move menuToggle setup here since it's injected by the component
-        document.addEventListener("DOMContentLoaded", function(){
 
  const menuToggle = document.getElementById('menuToggle');
  const mobileMenu = document.getElementById('mobileMenu');
@@ -241,10 +240,6 @@ window.addEventListener('DOMContentLoaded', () => {
 
  if(menuToggle){
   menuToggle.addEventListener('click', toggleMenu);
- }
-
- if(menuOverlay){
-  menuOverlay.addEventListener('click', toggleMenu);
  }
 
 });
@@ -398,7 +393,7 @@ if(loginInput){
             if (e.key === 'Enter') loginUser();
         });
 
-window.onclick = function(event) {
+/*window.onclick = function(event) {
 
  if(event.target.id === "loginModal"){
   closeLogin();
@@ -408,7 +403,7 @@ window.onclick = function(event) {
   closeSignup();
  }
 
-}
+}*/
 
 
 /*window.addEventListener("DOMContentLoaded", function(){
