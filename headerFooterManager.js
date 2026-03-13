@@ -28,8 +28,9 @@ class SpecialHeader extends HTMLElement
                     <div class="user-icon"></div>
                     <span class="user-text">GUEST MODE</span>
                 </div>
-                <button class="btn-login">LOGIN</button>
-                <button class="btn-signup">SIGN-UP</button>
+               <button class="btn-login" onclick="openLogin()">LOGIN</button>
+                <button class="btn-signup" onclick="openSignup()">SIGN-UP</button>
+
             </div>
         </div>
     </nav>
@@ -44,8 +45,9 @@ class SpecialHeader extends HTMLElement
         <a href="#organisation" class="mobile-link">OUR ORGANISATION</a>
         <a href="Contact.html" class="mobile-link">CONTACT US</a>
         <div class="mobile-auth">
-            <button class="btn-login">LOGIN</button>
-            <button class="btn-signup">SIGN-UP</button>
+<button class="btn-login" onclick="openLogin()">LOGIN</button>
+<button class="btn-signup" onclick="openSignup()">SIGN-UP</button>
+
      </div>
 
 
@@ -287,7 +289,7 @@ if(loginInput){
             const password = document.getElementById('signupPassword').value;
             const confirm  = document.getElementById('signupConfirm').value;
             const errorEl  = document.getElementById('signupError');
-            const preview  = document.getElementById('avatarPreview');
+            const preview  = document.getElementById('avatarPreviewSignup');
 
             if (!name || !email || !password || !confirm) {
                 errorEl.style.display = 'block';
@@ -362,7 +364,7 @@ if(loginInput){
             const email    = document.getElementById('loginEmail').value.trim();
             const password = document.getElementById('loginPassword').value;
             const errorEl  = document.getElementById('loginError');
-            const preview  = document.getElementById('avatarPreview');
+            const preview  = document.getElementById('avatarPreviewLogin');
 
             if (!name || !email || !password) {
                 errorEl.style.display = 'block';
@@ -386,6 +388,19 @@ if(loginInput){
         document.addEventListener('keydown', e => {
             if (e.key === 'Enter') loginUser();
         });
+
+window.onclick = function(event) {
+
+ if(event.target.id === "loginModal"){
+  closeLogin();
+ }
+
+ if(event.target.id === "signupModal"){
+  closeSignup();
+ }
+
+}
+
 
 /*window.addEventListener("DOMContentLoaded", function(){
 
