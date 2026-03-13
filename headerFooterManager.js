@@ -233,13 +233,22 @@ window.addEventListener('DOMContentLoaded', () => {
         }
 
         // Also move menuToggle setup here since it's injected by the component
-        const menuToggle = document.getElementById('menuToggle');
-        const mobileMenu = document.getElementById('mobileMenu');
-        const menuOverlay = document.getElementById('menuOverlay');
+        document.addEventListener("DOMContentLoaded", function(){
 
-        if (menuToggle) {
-            menuToggle.addEventListener('click', toggleMenu);
-        }
+ const menuToggle = document.getElementById('menuToggle');
+ const mobileMenu = document.getElementById('mobileMenu');
+ const menuOverlay = document.getElementById('menuOverlay');
+
+ if(menuToggle){
+  menuToggle.addEventListener('click', toggleMenu);
+ }
+
+ if(menuOverlay){
+  menuOverlay.addEventListener('click', toggleMenu);
+ }
+
+});
+
     }, 0);
 });
 
