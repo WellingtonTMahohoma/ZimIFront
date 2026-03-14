@@ -799,7 +799,7 @@ body {
 
 </style>
 <link rel="stylesheet" href="Header_and_footer.css">
-
+<script src = 'headerFooterManager.js'></script>
 </head>
 <body>
   <special-header></special-header>
@@ -863,7 +863,7 @@ body {
     </section>
     
     <special-footer></special-footer>
-    <script src = 'headerFooterManager.js'></script>
+    
 
     <script>
 
@@ -874,7 +874,7 @@ window.addEventListener('DOMContentLoaded', () => {
         if (navbar) {
             navbar.style.transition = 'transform 0.3s ease, background-color 0.3s ease';
         }        
-const menuToggle = document.getElementById('menuToggle');
+/*const menuToggle = document.getElementById('menuToggle');
 const mobileMenu = document.getElementById('mobileMenu');
 const menuOverlay = document.getElementById('menuOverlay');
 
@@ -899,7 +899,7 @@ function toggleMenu() {
 menuToggle.addEventListener('click', toggleMenu);
 
 // Close menu when clicking overlay
-menuOverlay.addEventListener('click', toggleMenu);
+menuOverlay.addEventListener('click', toggleMenu); */
 
 // Close mobile menu when clicking a link
 const mobileLinks = document.querySelectorAll('.mobile-link');
@@ -1091,7 +1091,7 @@ window.addEventListener('scroll', () => {
 });
 
 // Add transition to navbar
-navbar.style.transition = 'transform 0.3s ease, background-color 0.3s ease';
+/*navbar.style.transition = 'transform 0.3s ease, background-color 0.3s ease';*/
 
 console.log('ZIMFRONT website loaded successfully!');
 
