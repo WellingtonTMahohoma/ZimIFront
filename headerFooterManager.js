@@ -241,9 +241,6 @@ window.addEventListener('DOMContentLoaded', () => {
  if(menuToggle){
   menuToggle.addEventListener('click', toggleMenu);
  }
-
-});
-
     }, 0);
 });
 
