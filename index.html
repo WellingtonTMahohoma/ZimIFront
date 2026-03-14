@@ -798,6 +798,8 @@ body {
 }
 
 </style>
+<link rel="stylesheet" href="Header_and_footer.css">
+<script src = 'headerFooterManager.js'></script>
 </head>
 <body>
   <special-header></special-header>
@@ -866,6 +868,12 @@ body {
     <script>
 
 // Mobile Menu Toggle
+window.addEventListener('DOMContentLoaded', () => {
+    setTimeout(() => {
+        const navbar = document.querySelector('.navbar');
+        if (navbar) {
+            navbar.style.transition = 'transform 0.3s ease, background-color 0.3s ease';
+        }        
 const menuToggle = document.getElementById('menuToggle');
 const mobileMenu = document.getElementById('mobileMenu');
 const menuOverlay = document.getElementById('menuOverlay');
@@ -1086,6 +1094,21 @@ window.addEventListener('scroll', () => {
 navbar.style.transition = 'transform 0.3s ease, background-color 0.3s ease';
 
 console.log('ZIMFRONT website loaded successfully!');
+
+        function loginUser(){
+
+const name = document.getElementById("loginName").value;
+
+const user = {
+name:name,
+image:"default-avatar.png"
+};
+
+localStorage.setItem("user", JSON.stringify(user));
+
+window.location.href="index.html";
+
+}
 
 </script>
 </body>
