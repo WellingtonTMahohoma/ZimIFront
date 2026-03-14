@@ -225,23 +225,37 @@ function guestMode(){
  alert("You are browsing as a guest.");
 }
 
-window.addEventListener('DOMContentLoaded', () => {
-    setTimeout(() => {
-        const navbar = document.querySelector('.navbar');
-        if (navbar) {
-            navbar.style.transition = 'transform 0.3s ease, background-color 0.3s ease';
-        }
+function initMenuToggle() {
+    const menuToggle = document.getElementById('menuToggle');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const menuOverlay = document.getElementById('menuOverlay');
+    const navbar = document.querySelector('.navbar');
 
-        // Also move menuToggle setup here since it's injected by the component
+    if (!menuToggle || !mobileMenu || !menuOverlay) return;
 
- const menuToggle = document.getElementById('menuToggle');
- const mobileMenu = document.getElementById('mobileMenu');
- const menuOverlay = document.getElementById('menuOverlay');
+    if (menuToggle.dataset.bound) return;
+    menuToggle.dataset.bound = 'true';
 
- if(menuToggle){
-  menuToggle.addEventListener('click', toggleMenu);
- }
-    }, 0);
+    if (navbar) {
+        navbar.style.transition = 'transform 0.3s ease, background-color 0.3s ease';
+    }
+
+    menuToggle.addEventListener('click', toggleMenu);
+    menuOverlay.addEventListener('click', toggleMenu);
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    initMenuToggle();
+
+    if (!document.getElementById('menuToggle')) {
+        const observer = new MutationObserver(() => {
+            if (document.getElementById('menuToggle')) {
+                initMenuToggle();
+                observer.disconnect();
+            }
+        });
+        observer.observe(document.body, { childList: true, subtree: true });
+    }
 });
 
 window.addEventListener("DOMContentLoaded", function(){
