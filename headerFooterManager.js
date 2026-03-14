@@ -26,7 +26,7 @@ class SpecialHeader extends HTMLElement
             <div class="nav-right">
                 <div class="user-section">
                     <div class="user-icon"></div>
-                    <span class="user-text" onclick="guestMode()>GUEST MODE</span>
+                    <span class="user-text" onclick="guestMode()">GUEST MODE</span>
                 </div>
                <button class="btn-login" onclick="openLogin()">LOGIN</button>
                 <button class="btn-signup" onclick="openSignup()">SIGN-UP</button>
@@ -193,7 +193,7 @@ function closeLogin(){
  document.getElementById("loginModal").style.display = "none";
  document.body.style.overflow = "";
 }
-/*function toggleMenu() {
+function toggleMenu() {
 
  const mobileMenu = document.getElementById('mobileMenu');
  const menuOverlay = document.getElementById('menuOverlay');
@@ -201,7 +201,7 @@ function closeLogin(){
  mobileMenu.classList.toggle('active');
  menuOverlay.classList.toggle('active');
 
-}*/
+}
 
 function openSignup(){
  document.getElementById("signupModal").style.display = "flex";
