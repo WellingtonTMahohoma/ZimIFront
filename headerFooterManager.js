@@ -265,7 +265,7 @@ document.getElementById("menuOverlay").classList.remove("active");
     menuOverlay.addEventListener('click', toggleMenu);
 }*/
 
-document.addEventListener('DOMContentLoaded', () => {
+/*document.addEventListener('DOMContentLoaded', () => {
     initMenuToggle();
 
     if (!document.getElementById('menuToggle')) {
@@ -277,7 +277,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
         observer.observe(document.body, { childList: true, subtree: true });
     }
-});
+});*/
 
 window.addEventListener("DOMContentLoaded", function(){
 
@@ -451,5 +451,26 @@ if(loginInput){
  }
 
 });*/
+
+document.addEventListener("click", function(e){
+
+if(e.target.closest("#menuToggle")){
+
+const mobileMenu = document.getElementById("mobileMenu");
+const menuOverlay = document.getElementById("menuOverlay");
+
+mobileMenu.classList.toggle("active");
+menuOverlay.classList.toggle("active");
+
+}
+
+if(e.target.id === "menuOverlay"){
+
+document.getElementById("mobileMenu").classList.remove("active");
+document.getElementById("menuOverlay").classList.remove("active");
+
+}
+
+});
 
 
