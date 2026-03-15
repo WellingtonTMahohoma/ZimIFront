@@ -799,7 +799,7 @@ body {
 
 </style>
 <link rel="stylesheet" href="Header_and_footer.css">
-<script src = 'headerFooterManager.js'></script>
+
 </head>
 <body>
   <special-header></special-header>
@@ -868,14 +868,14 @@ body {
     <script>
 
 // Mobile Menu Toggle
-window.addEventListener('DOMContentLoaded', () => {
+/*window.addEventListener('DOMContentLoaded', () => {
     setTimeout(() => {
         const navbar = document.querySelector('.navbar');
         if (navbar) {
             navbar.style.transition = 'transform 0.3s ease, background-color 0.3s ease';
         } 
          }, 100);
-});
+});*/
 // Close mobile menu when clicking a link
 const mobileLinks = document.querySelectorAll('.mobile-link');
 mobileLinks.forEach(link => {
@@ -1041,7 +1041,7 @@ projectCards.forEach(card => {
 });
 
 // Navbar scroll effect
-let lastScroll = 0;
+/*let lastScroll = 0;
 const navbar = document.querySelector('.navbar');
 
 window.addEventListener('scroll', () => {
@@ -1063,7 +1063,7 @@ window.addEventListener('scroll', () => {
     }
     
     lastScroll = currentScroll;
-});
+});*/
 
 // Add transition to navbar
 /*navbar.style.transition = 'transform 0.3s ease, background-color 0.3s ease';*/
@@ -1084,7 +1084,10 @@ localStorage.setItem("user", JSON.stringify(user));
 window.location.href="index.html";
 
 }
-
+        
+<script src="headerFooterManager.js"></script>
+<script src="menu_button.js"></script>
+        
 </script>
 </body>
 </html>
