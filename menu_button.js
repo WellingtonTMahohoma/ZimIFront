@@ -1,67 +1,70 @@
-document.addEventListener("DOMContentLoaded", function(){
+function initMenu() {
+    const menuToggle  = document.getElementById('menuToggle');
+    const mobileMenu  = document.getElementById('mobileMenu');
+    const menuOverlay = document.getElementById('menuOverlay');
+    const navbar      = document.querySelector('.navbar');
 
-const menuToggle = document.getElementById("menuToggle");
-const mobileMenu = document.getElementById("mobileMenu");
-const menuOverlay = document.getElementById("menuOverlay");
+    if (!menuToggle || !mobileMenu || !menuOverlay) return false;
+    if (menuToggle.dataset.bound) return true;
+    menuToggle.dataset.bound = 'true';
 
-function toggleMenu(){
+    function toggleMenu() {
+        const isOpen = mobileMenu.classList.toggle('active');
+        menuOverlay.classList.toggle('active');
+        document.body.style.overflow = isOpen ? 'hidden' : '';
 
-mobileMenu.classList.toggle("active");
-menuOverlay.classList.toggle("active");
+        const spans = menuToggle.querySelectorAll('span');
+        if (isOpen) {
+            spans[0].style.transform = 'rotate(45deg) translateY(9px)';
+            spans[1].style.opacity   = '0';
+            spans[2].style.transform = 'rotate(-45deg) translateY(-9px)';
+        } else {
+            spans[0].style.transform = 'none';
+            spans[1].style.opacity   = '1';
+            spans[2].style.transform = 'none';
+        }
+    }
 
-document.body.style.overflow =
-mobileMenu.classList.contains("active") ? "hidden" : "";
+    menuToggle.addEventListener('click', toggleMenu);
+    menuOverlay.addEventListener('click', toggleMenu);
 
+    document.querySelectorAll('.mobile-link').forEach(link => {
+        link.addEventListener('click', () => {
+            mobileMenu.classList.remove('active');
+            menuOverlay.classList.remove('active');
+            document.body.style.overflow = '';
+            const spans = menuToggle.querySelectorAll('span');
+            spans[0].style.transform = 'none';
+            spans[1].style.opacity   = '1';
+            spans[2].style.transform = 'none';
+        });
+    });
+
+    if (navbar) {
+        navbar.style.transition = 'transform 0.3s ease, background-color 0.3s ease';
+        let lastScroll = 0;
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.scrollY;
+            navbar.style.transform = (currentScroll > lastScroll && currentScroll > 100)
+                ? 'translateY(-100%)'
+                : 'translateY(0)';
+            navbar.style.backgroundColor = currentScroll > 50
+                ? 'rgba(0,0,0,0.98)'
+                : 'rgba(0,0,0,0.95)';
+            lastScroll = currentScroll;
+        });
+    }
+
+    return true;
 }
 
-if(menuToggle){
-menuToggle.addEventListener("click", toggleMenu);
+// Keep trying until the custom element has rendered
+function waitForMenu() {
+    if (initMenu()) return;
+    const observer = new MutationObserver(() => {
+        if (initMenu()) observer.disconnect();
+    });
+    observer.observe(document.body, { childList: true, subtree: true });
 }
 
-if(menuOverlay){
-menuOverlay.addEventListener("click", toggleMenu);
-}
-
-
-/* close menu when clicking mobile links */
-
-const mobileLinks = document.querySelectorAll(".mobile-link");
-
-mobileLinks.forEach(link=>{
-link.addEventListener("click", ()=>{
-
-mobileMenu.classList.remove("active");
-menuOverlay.classList.remove("active");
-document.body.style.overflow="";
-
-});
-});
-
-
-/* navbar hide on scroll */
-
-let lastScroll = 0;
-const navbar = document.querySelector(".navbar");
-
-if(navbar){
-
-window.addEventListener("scroll", ()=>{
-
-const currentScroll = window.scrollY;
-
-if(currentScroll > lastScroll && currentScroll > 100){
-navbar.style.transform = "translateY(-100%)";
-}
-else{
-navbar.style.transform = "translateY(0)";
-}
-
-lastScroll = currentScroll;
-
-});
-
-navbar.style.transition = "transform 0.3s ease";
-
-}
-
-});
+document.addEventListener('DOMContentLoaded', waitForMenu);
