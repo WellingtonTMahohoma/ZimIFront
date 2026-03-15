@@ -279,6 +279,40 @@ document.getElementById("menuOverlay").classList.remove("active");
     }
 });*/
 
+function initMenuToggle() {
+    const menuToggle = document.getElementById('menuToggle');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const menuOverlay = document.getElementById('menuOverlay');
+    const navbar = document.querySelector('.navbar');
+
+    if (!menuToggle || !mobileMenu || !menuOverlay) return false;
+
+    if (menuToggle.dataset.bound) return true;
+    menuToggle.dataset.bound = 'true';
+
+    if (navbar) {
+        navbar.style.transition = 'transform 0.3s ease, background-color 0.3s ease';
+    }
+
+    menuToggle.addEventListener('click', toggleMenu);
+    menuOverlay.addEventListener('click', toggleMenu);
+    return true;
+}
+
+function waitForMenuToggle() {
+    if (initMenuToggle()) return;
+
+    const observer = new MutationObserver(() => {
+        if (initMenuToggle()) {
+            observer.disconnect();
+        }
+    });
+
+    observer.observe(document.body, { childList: true, subtree: true });
+}
+
+document.addEventListener('DOMContentLoaded', waitForMenuToggle);
+
 window.addEventListener("DOMContentLoaded", function(){
 
 const signupInput = document.getElementById("avatarInputSignup");
