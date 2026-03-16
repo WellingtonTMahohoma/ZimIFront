@@ -23,14 +23,14 @@ class SpecialHeader extends HTMLElement
                 <a href="Contact.html" class="nav-link">CONTACT US</a>
             </div>
             
-            <div class="nav-right">
-                <div class="user-section">
-                    <div class="user-icon"></div>
-                    <span class="user-text">GUEST MODE</span>
-                </div>
-                <button class="btn-login">LOGIN</button>
-                <button class="btn-signup">SIGN-UP</button>
-            </div>
+        <div class="nav-right">
+    <div class="user-section">
+        <div class="user-icon"></div>
+        <span class="user-text" onclick="guestMode()">GUEST MODE</span>
+    </div>
+    <button class="btn-login" onclick="openLogin()">LOGIN</button>
+    <button class="btn-signup" onclick="openSignup()">SIGN-UP</button>
+</div>
         </div>
     </nav>
 
@@ -44,16 +44,38 @@ class SpecialHeader extends HTMLElement
         <a href="News and Updates.html" class="mobile-link">NEWS & UPDATES</a>
         <a href="resourcehub.html" class="mobile-link">RESOURCES HUB</a>
         <a href="Contact.html" class="mobile-link">CONTACT US</a>
-        <div class="mobile-auth">
-            <button class="btn-login">LOGIN</button>
-            <button class="btn-signup">SIGN-UP</button>
-     </div>
+       <div class="mobile-auth">
+    <button class="btn-login" onclick="openLogin()">LOGIN</button>
+    <button class="btn-signup" onclick="openSignup()">SIGN-UP</button>
+</div>
 
 
         <div class="mobile-footer">
             COPYRIGHT © 2026 ZIMBABWE INNOVATION FRONT. ALL RIGHTS RESERVED.
         </div>
-    </div>`; 
+    </div>
+    <!-- LOGIN MODAL -->
+<div id="loginModal" class="modal">
+    <div class="modal-box">
+        <span class="close" onclick="closeLogin()">&times;</span>
+        <h2>Login</h2>
+        <input type="text" placeholder="Username">
+        <input type="password" placeholder="Password">
+        <button class="btn-login">Login</button>
+    </div>
+</div>
+
+<!-- SIGNUP MODAL -->
+<div id="signupModal" class="modal">
+    <div class="modal-box">
+        <span class="close" onclick="closeSignup()">&times;</span>
+        <h2>Sign Up</h2>
+        <input type="text" placeholder="Username">
+        <input type="email" placeholder="Email">
+        <input type="password" placeholder="Password">
+        <button class="btn-signup">Create Account</button>
+    </div>
+</div>`; 
   }
 }
 
@@ -79,3 +101,54 @@ class SpecialFooter extends HTMLElement
 customElements.define('special-header', SpecialHeader)
 
 customElements.define('special-footer', SpecialFooter)
+
+function openLogin(){
+ document.getElementById("loginModal").style.display = "block";
+}
+
+function closeLogin(){
+ document.getElementById("loginModal").style.display = "none";
+}
+/*function toggleMenu() {
+
+ const mobileMenu = document.getElementById('mobileMenu');
+ const menuOverlay = document.getElementById('menuOverlay');
+
+ mobileMenu.classList.toggle('active');
+ menuOverlay.classList.toggle('active');
+
+}*/
+
+function openSignup(){
+ document.getElementById("signupModal").style.display = "block";
+}
+
+function closeSignup(){
+ document.getElementById("signupModal").style.display = "none";
+}
+
+function guestMode(){
+ alert("You are browsing as a guest.");
+}
+
+window.addEventListener('DOMContentLoaded', () => {
+    setTimeout(() => {
+        const navbar = document.querySelector('.navbar');
+        if (navbar) {
+            navbar.style.transition = 'transform 0.3s ease, background-color 0.3s ease';
+        }
+
+        // Also move menuToggle setup here since it's injected by the component
+        const menuToggle = document.getElementById('menuToggle');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const menuOverlay = document.getElementById('menuOverlay');
+
+        if (menuToggle) {
+            menuToggle.addEventListener('click', toggleMenu);
+        }
+    }, 0);
+});
+
+
+
+
