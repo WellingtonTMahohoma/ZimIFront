@@ -311,7 +311,7 @@ document.getElementById("menuOverlay").classList.remove("active");
     observer.observe(document.body, { childList: true, subtree: true });
 }*/
 
-document.addEventListener('DOMContentLoaded', waitForMenuToggle);
+//document.addEventListener('DOMContentLoaded', waitForMenuToggle);
 
 window.addEventListener("DOMContentLoaded", function(){
 
