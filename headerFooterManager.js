@@ -47,7 +47,7 @@ class SpecialHeader extends HTMLElement
         <div class="mobile-auth">
 <button class="btn-login" onclick="openLogin()">LOGIN</button>
 <button class="btn-signup" onclick="openSignup()">SIGN-UP</button>
-
+<div class="menu-overlay" id="menuOverlay"></div>
      </div>
 
 
@@ -193,7 +193,7 @@ function closeLogin(){
  document.getElementById("loginModal").style.display = "none";
  document.body.style.overflow = "";
 }
-function toggleMenu() {
+/*function toggleMenu() {
 
  const mobileMenu = document.getElementById('mobileMenu');
  const menuOverlay = document.getElementById('menuOverlay');
@@ -201,7 +201,7 @@ function toggleMenu() {
  mobileMenu.classList.toggle('active');
  menuOverlay.classList.toggle('active');
 
-}
+}*/
 
 function openSignup(){
  document.getElementById("signupModal").style.display = "flex";
@@ -225,7 +225,7 @@ function guestMode(){
  alert("You are browsing as a guest.");
 }
 
-document.addEventListener("click", function(e){
+/*document.addEventListener("click", function(e){
 
 if(e.target.closest("#menuToggle")){
 
@@ -244,7 +244,7 @@ document.getElementById("menuOverlay").classList.remove("active");
 
 }
 
-});
+});*/
 
 /*function initMenuToggle() {
     const menuToggle = document.getElementById('menuToggle');
@@ -279,7 +279,7 @@ document.getElementById("menuOverlay").classList.remove("active");
     }
 });*/
 
-function initMenuToggle() {
+/*function initMenuToggle() {
     const menuToggle = document.getElementById('menuToggle');
     const mobileMenu = document.getElementById('mobileMenu');
     const menuOverlay = document.getElementById('menuOverlay');
@@ -297,9 +297,9 @@ function initMenuToggle() {
     menuToggle.addEventListener('click', toggleMenu);
     menuOverlay.addEventListener('click', toggleMenu);
     return true;
-}
+}*/
 
-function waitForMenuToggle() {
+/*function waitForMenuToggle() {
     if (initMenuToggle()) return;
 
     const observer = new MutationObserver(() => {
@@ -309,7 +309,7 @@ function waitForMenuToggle() {
     });
 
     observer.observe(document.body, { childList: true, subtree: true });
-}
+}*/
 
 document.addEventListener('DOMContentLoaded', waitForMenuToggle);
 
@@ -486,7 +486,7 @@ if(loginInput){
 
 });*/
 
-document.addEventListener("click", function(e){
+/*document.addEventListener("click", function(e){
 
 if(e.target.closest("#menuToggle")){
 
@@ -504,5 +504,19 @@ document.getElementById("mobileMenu").classList.remove("active");
 document.getElementById("menuOverlay").classList.remove("active");
 
 }
+
+});*/
+
+document.addEventListener("click", function(e){
+
+  if(e.target.closest("#menuToggle")){
+    document.getElementById("mobileMenu")?.classList.toggle("active");
+    document.getElementById("menuOverlay")?.classList.toggle("active");
+  }
+
+  if(e.target.id === "menuOverlay"){
+    document.getElementById("mobileMenu")?.classList.remove("active");
+    document.getElementById("menuOverlay")?.classList.remove("active");
+  }
 
 });
