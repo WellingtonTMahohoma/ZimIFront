@@ -225,7 +225,7 @@ function guestMode(){
  alert("You are browsing as a guest.");
 }
 
-/*document.addEventListener("click", function(e){
+document.addEventListener("click", function(e){
 
 if(e.target.closest("#menuToggle")){
 
@@ -244,7 +244,7 @@ document.getElementById("menuOverlay").classList.remove("active");
 
 }
 
-});*/
+});
 
 /*function initMenuToggle() {
     const menuToggle = document.getElementById('menuToggle');
