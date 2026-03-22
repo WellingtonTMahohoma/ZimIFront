@@ -47,7 +47,7 @@ class SpecialHeader extends HTMLElement
         <div class="mobile-auth">
 <button class="btn-login" onclick="openLogin()">LOGIN</button>
 <button class="btn-signup" onclick="openSignup()">SIGN-UP</button>
-<div class="menu-overlay" id="menuOverlay"></div>
+
      </div>
 
 
